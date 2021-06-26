@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 
-let user = require('../model/model');
+let movie = require('../model/model');
 
 router.route('/create').post((req, res, next) => {
-    user.create(req.body, (error, data) => {
+    movie.create(req.body, (error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -16,7 +16,7 @@ router.route('/create').post((req, res, next) => {
 });
 
 router.route('/').get((req, res) => {
-    user.find((error, data) => {
+    movie.find((error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -26,7 +26,7 @@ router.route('/').get((req, res) => {
 })
 
 router.route('/edit/:id').get((req, res) => {
-    user.findById(req.params.id, (error, data) => {
+    movie.findById(req.params.id, (error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -37,7 +37,7 @@ router.route('/edit/:id').get((req, res) => {
 
 
 router.route('/update/:id').put((req, res, next) => {
-    user.findByIdAndUpdate(req.params.id, {
+    movie.findByIdAndUpdate(req.params.id, {
         $set: req.body
     }, (error, data) => {
         if (error) {
@@ -51,7 +51,7 @@ router.route('/update/:id').put((req, res, next) => {
 })
 
 router.route('/delete/:id').delete((req, res, next) => {
-    user.findByIdAndRemove(req.params.id, (error, data) => {
+    movie.findByIdAndRemove(req.params.id, (error, data) => {
         if (error) {
             return next(error);
         } else {

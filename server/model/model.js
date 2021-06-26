@@ -1,15 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let userSchema = new Schema({
+let movieSchema = new Schema({
     name: {
         type: String
     },
-    email: {
+    language: {
         type: String
+    },
+    date : {
+        type: Date
     }
 }, {
-        collection: 'users'
+        collection: 'movies'
     })
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('Movie', movieSchema)

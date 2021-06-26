@@ -11,7 +11,16 @@ class DataTable extends Component {
                     {this.props.obj.name}
                 </td>
                 <td>
-                    {this.props.obj.email}
+                    {this.props.obj.language}
+                </td>
+                <td>
+                    {this.props.obj.date}
+                </td>
+                <td>
+                    {this.props.obj.budget}
+                </td>
+                <td>
+                    {this.props.obj.Collection}
                 </td>
             </tr>
         );

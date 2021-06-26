@@ -34,7 +34,9 @@ export default class Users extends Component {
                             <tr>
                                 <td>ID</td>
                                 <td>Name</td>
-                                <td>Email</td>
+                                <td>Language</td>
+                                <td>Date</td>
+                                <td>Budget</td>
                             </tr>
                         </thead>
                         <tbody>

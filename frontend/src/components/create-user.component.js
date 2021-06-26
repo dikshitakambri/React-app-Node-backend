@@ -1,20 +1,22 @@
-// ** create-user.component.js ** //
+// ** Create movie ** //
 
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class CreateUser extends Component {
+export default class CreateMovies extends Component {
 
     constructor(props) {
         super(props)
 
         this.onChangeUserName = this.onChangeUserName.bind(this);
-        this.onChangeUserEmail = this.onChangeUserEmail.bind(this);
+        this.onChangeLanguage = this.onChangeLanguage.bind(this);
+        this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             name: '',
-            email: ''
+            language: '',
+            date: ''
         }
     }
 
@@ -22,8 +24,12 @@ export default class CreateUser extends Component {
         this.setState({ name: e.target.value })
     }
 
-    onChangeUserEmail(e) {
-        this.setState({ email: e.target.value })
+    onChangeLanguage(e) {
+        this.setState({ language: e.target.value })
+    }
+
+    onChangeDate(e) {
+        this.setState({ date: e.target.value })
     }
 
     onSubmit(e) {
@@ -31,7 +37,8 @@ export default class CreateUser extends Component {
 
         const userObject = {
             name: this.state.name,
-            email: this.state.email
+            language: this.state.language,
+            date: this.state.date
         };
 
         axios.post('http://localhost:3001/users/create', userObject)
@@ -41,7 +48,7 @@ export default class CreateUser extends Component {
                 console.log(error)
             });
 
-        this.setState({ name: '', email: '' })
+        this.setState({ name: '', language: '', date: '' })
     }
 
 
@@ -54,11 +61,16 @@ export default class CreateUser extends Component {
                         <input type="text" value={this.state.name} onChange={this.onChangeUserName} className="form-control" />
                     </div>
                     <div className="form-group">
-                        <label>Add User Email</label>
-                        <input type="text" value={this.state.email} onChange={this.onChangeUserEmail} className="form-control" />
+                        <label>Add Language</label>
+                        <input type="text" value={this.state.language} onChange={this.onChangeLanguage} className="form-control" />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Create User" className="btn btn-success btn-block" />
+                        <label>Add Date</label>
+                        <input type="date" value={this.state.date} onChange={this.onChangeDate} className="form-control" />
+                    </div>
+                    <br></br>
+                    <div className="form-group">
+                        <input type="submit" value="Create Movie" className="btn btn-danger btn-block" />
                     </div>
                 </form>
             </div>

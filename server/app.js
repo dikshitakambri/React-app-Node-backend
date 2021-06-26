@@ -8,7 +8,7 @@ let cors = require('cors');
 let database = require('./config/db');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var moviesRouter = require('./routes/movies');
 
 var app = express();
 
@@ -28,7 +28,7 @@ app.get("/api", (req, res) => {
 });
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/users', moviesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
